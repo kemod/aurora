@@ -151,9 +151,29 @@ export interface User {
 export interface Wedding {
   id: number;
   name: string;
+  /**
+   * Digunakan sebagai identitas unik pada alamat pernikahan.
+   */
   slug: string;
+  /**
+   * Pengguna yang memiliki dan mengelola data pernikahan ini.
+   */
   owner: number | User;
   status: 'draft' | 'published';
+  groom: {
+    name: string;
+    nickname?: string | null;
+  };
+  bride: {
+    name: string;
+    nickname?: string | null;
+  };
+  profile?: {
+    /**
+     * Ceritakan kisah pasangan atau perjalanan menuju pernikahan.
+     */
+    story?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -264,6 +284,23 @@ export interface WeddingsSelect<T extends boolean = true> {
   slug?: T;
   owner?: T;
   status?: T;
+  groom?:
+    | T
+    | {
+        name?: T;
+        nickname?: T;
+      };
+  bride?:
+    | T
+    | {
+        name?: T;
+        nickname?: T;
+      };
+  profile?:
+    | T
+    | {
+        story?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

@@ -52,6 +52,7 @@ export const Wedding: CollectionConfig = {
     {
       name: 'name',
       type: 'text',
+      label: 'Nama Pernikahan',
       required: true,
       minLength: 2,
       maxLength: 150,
@@ -60,42 +61,112 @@ export const Wedding: CollectionConfig = {
     {
       name: 'slug',
       type: 'text',
+      label: 'Slug',
       required: true,
       unique: true,
       minLength: 2,
       maxLength: 150,
       index: true,
+      admin: {
+        description:
+          'Digunakan sebagai identitas unik pada alamat pernikahan.',
+      },
     },
 
     {
       name: 'owner',
       type: 'relationship',
       relationTo: 'users',
+      label: 'Pemilik',
       required: true,
       index: true,
       admin: {
         position: 'sidebar',
+        description:
+          'Pengguna yang memiliki dan mengelola data pernikahan ini.',
       },
     },
 
     {
       name: 'status',
       type: 'select',
+      label: 'Status',
       required: true,
       defaultValue: 'draft',
       options: [
         {
-          label: 'Draft',
+          label: 'Draf',
           value: 'draft',
         },
         {
-          label: 'Published',
+          label: 'Dipublikasikan',
           value: 'published',
         },
       ],
       admin: {
         position: 'sidebar',
       },
+    },
+
+    {
+      name: 'groom',
+      type: 'group',
+      label: 'Mempelai Pria',
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+          label: 'Nama Lengkap',
+          required: true,
+          minLength: 2,
+          maxLength: 100,
+        },
+        {
+          name: 'nickname',
+          type: 'text',
+          label: 'Nama Panggilan',
+          maxLength: 50,
+        },
+      ],
+    },
+
+    {
+      name: 'bride',
+      type: 'group',
+      label: 'Mempelai Wanita',
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+          label: 'Nama Lengkap',
+          required: true,
+          minLength: 2,
+          maxLength: 100,
+        },
+        {
+          name: 'nickname',
+          type: 'text',
+          label: 'Nama Panggilan',
+          maxLength: 50,
+        },
+      ],
+    },
+
+    {
+      name: 'profile',
+      type: 'group',
+      label: 'Profil Pernikahan',
+      fields: [
+        {
+          name: 'story',
+          type: 'textarea',
+          label: 'Cerita Pernikahan',
+          admin: {
+            description:
+              'Ceritakan kisah pasangan atau perjalanan menuju pernikahan.',
+          },
+        },
+      ],
     },
   ],
 }

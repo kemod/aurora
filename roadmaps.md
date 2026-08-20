@@ -391,45 +391,58 @@ User
 
 Sprint 2 berfokus pada pembangunan domain utama pernikahan Aurora.
 
-Tujuan sprint ini adalah membangun struktur data wedding yang menjadi fondasi untuk fitur-fitur berikutnya, termasuk invitation builder, guest management, RSVP, dan wedding gift.
+### Progress
 
-Wedding menjadi entity utama yang menghubungkan data pasangan, profil pernikahan, acara, dan informasi lokasi.
+- Task 2A — Wedding Collection 🟢 Completed
+- Task 2B — Couple & Wedding Profile 🟢 Completed
+- Task 2C — Wedding Events ⚪ Not Started
+- Task 2D — Location & Date/Time ⚪ Not Started
+- Task 2E — Access Control 🟢 Completed
+- Task 2F — Database & Generated Types 🟢 Completed
+- Task 2G — API Validation ⚪ Not Started
+- Task 2H — Sprint Review ⚪ Not Started
 
-### Objectives
+### Completed
 
-Sprint 2 memiliki beberapa tujuan utama:
+#### Task 2A — Wedding Collection
 
-- Membuat `weddings` collection
-- Menghubungkan wedding dengan user sebagai owner
-- Membuat informasi pasangan
-- Membuat wedding profile
-- Membuat wedding events
-- Membuat informasi lokasi
-- Menentukan tanggal dan waktu acara
-- Menerapkan ownership dan access control
-- Menyediakan API untuk wedding domain
-- Melakukan database migration
-- Generate Payload types
-- Melakukan validation
-- Menyelesaikan Sprint 2 melalui Pull Request
+- `weddings` collection
+- Nama pernikahan
+- Slug unik
+- Owner relationship ke `users`
+- Status `draft` / `published`
+- Ownership-based access control
+- Admin access
 
----
+#### Task 2B — Couple & Wedding Profile
 
-## Task 2A — Wedding Collection
+- Informasi mempelai pria
+- Nama lengkap mempelai pria
+- Nama panggilan mempelai pria
+- Informasi mempelai wanita
+- Nama lengkap mempelai wanita
+- Nama panggilan mempelai wanita
+- Profil pernikahan
+- Cerita pernikahan
 
-**Status:** 🟢 Completed
-
-Task 2A berfokus pada pembuatan collection utama `weddings`.
-
-Wedding menjadi root entity untuk data pernikahan Aurora.
-
-Struktur dasar:
+### Current Domain Structure
 
 ```text
-Wedding
-├── id
-├── owner
-├── title
-├── slug
-└── createdAt
-
+User
+ │
+ └── Wedding
+      ├── name
+      ├── slug
+      ├── owner
+      ├── status
+      │
+      ├── groom
+      │   ├── name
+      │   └── nickname
+      │
+      ├── bride
+      │   ├── name
+      │   └── nickname
+      │
+      └── profile
+          └── story
