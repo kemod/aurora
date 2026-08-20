@@ -1,23 +1,28 @@
-@"
+# Dependencies
 node_modules/
 .pnpm-store/
+
+# Build
 .next/
 .turbo/
 dist/
 build/
 
+# Environment & secrets
 .env
 .env.*
 !.env.example
 
+# Logs
 *.log
 npm-debug.log*
 pnpm-debug.log*
 
+# OS
 .DS_Store
 Thumbs.db
 
+# Local IDE
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
-"@ | Set-Content .gitignore

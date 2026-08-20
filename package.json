@@ -1,0 +1,26 @@
+{
+  "name": "aurora",
+  "version": "0.1.0",
+  "description": "Platform pengalaman pernikahan digital dari Auctore yang membantu pasangan mempersiapkan dan mengelola pernikahan dengan lebih mudah, nyaman, dan bermakna.",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck"
+  },
+  "keywords": [],
+  "author": "Dafa Setiandi",
+  "license": "UNLICENSED",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.20.0",
+      "onFail": "download"
+    }
+  },
+  "type": "module",
+  "devDependencies": {
+    "turbo": "^2.10.11"
+  }
+}
