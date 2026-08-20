@@ -1,12 +1,31 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { buildConfig } from 'payload'
 
+import { User } from './src/collections/user'
+
 export default buildConfig({
-  collections: [],
+  admin: {
+    user: User.slug,
+  },
+
+  collections: [User],
 
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URL,
+      connectionString: (() => {
+        const url = process.env.DATABASE_URL
+
+        if (!url) {
+          throw new Error('DATABASE_URL is missing')
+        }
+
+        console.log(
+          'DATABASE_URL:',
+          url.replace(/:\/\/([^:]+):([^@]+)@/, '://$1:***@'),
+        )
+
+        return url
+      })(),
     },
   }),
 

@@ -44,9 +44,9 @@
 
 **Current Sprint:** Sprint 1 — Identity
 
-**Current Task:** Task 5A — Local PostgreSQL Environment
+**Current Task:** Sprint 1 Review / Preparation for Sprint 2
 
-**Status:** 🟡 In Progress
+**Status:** 🟢 Sprint 1 Completed
 
 ---
 
@@ -176,6 +176,7 @@ Aurora harus terus belajar dari penggunaan nyata.
 
 ```text
 aurora/
+
 │
 ├── apps/
 │   ├── web/
