@@ -398,7 +398,7 @@ Tujuan sprint ini adalah membangun struktur data wedding yang menjadi fondasi un
 - Task 2A — Wedding Collection 🟢 Completed
 - Task 2B — Couple & Wedding Profile 🟢 Completed
 - Task 2C — Wedding Events 🟢 Completed
-- Task 2D — Location & Date/Time ⚪ Not Started
+- Task 2D — Task 2D — Location & Date/Time 🟢 Completed
 - Task 2E — Access Control 🟢 Completed
 - Task 2F — Database & Generated Types 🟢 Completed
 - Task 2G — API Validation ⚪ Not Started
@@ -424,7 +424,7 @@ Task 2A membangun collection utama `weddings` sebagai root entity domain pernika
 
 ---
 
-## Task 2B — Couple & Wedding Profile
+# Task 2B — Couple & Wedding Profile
 
 **Status:** 🟢 Completed
 
@@ -441,17 +441,62 @@ Task 2B membangun informasi pasangan dan profil dasar pernikahan.
 - Profil pernikahan
 - Cerita pernikahan
 
-### Current Structure
+### Outcome
+
+Wedding sekarang memiliki informasi dasar pasangan dan profil pernikahan yang dapat digunakan sebagai fondasi untuk fitur invitation dan pengalaman wedding berikutnya.
+
+### Completed
+
+- Informasi mempelai pria
+- Nama lengkap mempelai pria
+- Nama panggilan mempelai pria
+- Informasi mempelai wanita
+- Nama lengkap mempelai wanita
+- Nama panggilan mempelai wanita
+- Profil pernikahan
+- Cerita pernikahan
+
+---
+
+## Task 2C — Wedding Events
+
+**Status:** 🟢 Completed
+
+Task 2C membangun struktur acara pernikahan sebagai array di dalam wedding.
+
+Satu wedding dapat memiliki beberapa acara, seperti akad dan resepsi.
+
+### Completed
+
+- Nama acara
+- Jenis acara
+- Tanggal acara
+- Waktu mulai
+- Waktu selesai
+- Dukungan beberapa acara dalam satu wedding
+
+### Event Types
 
 ```text
-Wedding
-├── groom
-│   ├── name
-│   └── nickname
-│
-├── bride
-│   ├── name
-│   └── nickname
-│
-└── profile
-    └── story
+Akad
+Resepsi
+Lainnya
+```
+
+---
+
+## Task 2D — Location & Date/Time
+
+**Status:** 🟢 Completed
+
+Task 2D melengkapi informasi lokasi setiap acara pernikahan.
+
+### Completed
+
+- Nama tempat
+- Alamat lengkap
+- Tautan Google Maps
+- Integrasi lokasi ke dalam `events[]`
+- Validasi TypeScript
+- Generated Payload types
+- Production build

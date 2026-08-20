@@ -187,6 +187,14 @@ export interface Wedding {
          * Gunakan format 24 jam, contoh: 10:00.
          */
         endTime?: string | null;
+        location: {
+          venue: string;
+          address: string;
+          /**
+           * Masukkan tautan Google Maps menuju lokasi acara.
+           */
+          mapsUrl?: string | null;
+        };
         id?: string | null;
       }[]
     | null;
@@ -325,6 +333,13 @@ export interface WeddingsSelect<T extends boolean = true> {
         date?: T;
         startTime?: T;
         endTime?: T;
+        location?:
+          | T
+          | {
+              venue?: T;
+              address?: T;
+              mapsUrl?: T;
+            };
         id?: T;
       };
   updatedAt?: T;

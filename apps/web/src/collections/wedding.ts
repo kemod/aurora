@@ -142,7 +142,7 @@ export const Wedding: CollectionConfig = {
           minLength: 2,
           maxLength: 100,
         },
-        
+
         {
           name: "nickname",
           type: "text",
@@ -237,6 +237,38 @@ export const Wedding: CollectionConfig = {
             placeholder: "10:00",
             description: "Gunakan format 24 jam, contoh: 10:00.",
           },
+        },
+
+        {
+          name: "location",
+          type: "group",
+          label: "Lokasi Acara",
+          fields: [
+            {
+              name: "venue",
+              type: "text",
+              label: "Nama Tempat",
+              required: true,
+              minLength: 2,
+              maxLength: 150,
+            },
+            {
+              name: "address",
+              type: "textarea",
+              label: "Alamat Lengkap",
+              required: true,
+              maxLength: 500,
+            },
+            {
+              name: "mapsUrl",
+              type: "text",
+              label: "Tautan Google Maps",
+              admin: {
+                description: "Masukkan tautan Google Maps menuju lokasi acara.",
+                placeholder: "https://maps.google.com/...",
+              },
+            },
+          ],
         },
       ],
     },
