@@ -42,11 +42,11 @@
 
 **Current Phase:** Building
 
-**Current Sprint:** Sprint 1 — Identity
+**Current Sprint:** Sprint 2 — Wedding Domain
 
-**Current Task:** Sprint 1 Review / Preparation for Sprint 2
+**Current Task:** Task 2B — Couple & Wedding Profile
 
-**Status:** 🟢 Sprint 1 Completed
+**Status:** 🟡 In Progress
 
 ---
 
@@ -197,3 +197,239 @@ aurora/
 ├── pnpm-workspace.yaml
 ├── roadmaps.md
 └── turbo.json
+```
+
+---
+
+# Git Workflow
+
+Aurora menggunakan Git-based workflow sederhana dengan dua jenis branch:
+
+- `main`
+- `feature/*`
+
+## Branch Structure
+
+```text
+main
+ │
+ ├── feature/*
+ ├── feature/*
+ └── feature/*
+ ```
+
+ ---
+
+ # Development Status
+
+**Current Phase:** Building
+
+**Current Sprint:** Sprint 2 — Wedding Domain
+
+**Current Task:** Task 2B — Couple & Wedding Profile
+
+**Overall Status:** 🟡 In Progress
+
+## Sprint Status
+
+| Sprint | Name | Status |
+|---|---|---|
+| Sprint 0 | Foundation | 🟢 Completed |
+| Sprint 1 | Identity | 🟢 Completed |
+| Sprint 2 | Wedding Domain | 🟡 In Progress |
+| Sprint 3 | Invitation Builder | ⚪ Not Started |
+| Sprint 4 | Guest & RSVP | ⚪ Not Started |
+| Sprint 5 | Wedding Gift | ⚪ Not Started |
+| Sprint 6 | Closed Beta | ⚪ Not Started |
+| Sprint 7 | Public Launch | ⚪ Not Started |
+
+## Current Progress
+
+```text
+Sprint 0 — Foundation
+🟢 Completed
+
+Sprint 1 — Identity
+🟢 Completed
+
+Sprint 2 — Wedding Domain
+🟡 In Progress
+├── Task 2A — Wedding Collection
+│   🟢 Completed
+└── Task 2B — Couple & Wedding Profile
+    🟡 Current
+
+Sprint 3 — Invitation Builder
+⚪ Not Started
+
+Sprint 4 — Guest & RSVP
+⚪ Not Started
+
+Sprint 5 — Wedding Gift
+⚪ Not Started
+
+Sprint 6 — Closed Beta
+⚪ Not Started
+
+Sprint 7 — Public Launch
+⚪ Not Started
+```
+
+---
+
+# Sprint 0 — Foundation
+
+**Status:** 🟢 Completed
+
+Sprint 0 berfokus pada pembangunan fondasi teknis Aurora sebelum pengembangan fitur produk dimulai.
+
+Tujuan utama sprint ini adalah memastikan repository, development environment, application structure, database, dan tooling dasar siap digunakan untuk pengembangan berkelanjutan.
+
+### Completed
+
+- Repository Aurora dibuat
+- Project version `0.1.0` ditetapkan
+- PNPM workspace dikonfigurasi
+- Turborepo dikonfigurasi
+- Struktur monorepo dibuat
+- `apps/web` dibuat sebagai aplikasi utama
+- Next.js dikonfigurasi
+- React dikonfigurasi
+- TypeScript dikonfigurasi
+- Tailwind CSS dikonfigurasi
+- Payload CMS diintegrasikan
+- PostgreSQL local environment disiapkan
+- Docker environment disiapkan
+- Docker Compose dikonfigurasi
+- Environment variables disiapkan
+- `.env.example` disiapkan
+- Git repository dikonfigurasi
+- Branch `main` ditetapkan sebagai branch utama
+- Feature branch workflow ditetapkan
+- Initial application structure berhasil dijalankan
+
+### Application Structure
+
+Fondasi repository Aurora:
+
+```text
+aurora/
+│
+├── apps/
+│   ├── web/
+│   ├── admin/
+│   └── docs/
+│
+├── packages/
+│
+├── docs/
+│
+├── .github/
+│
+├── .gitignore
+├── .env.example
+├── docker-compose.yml
+├── package.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── roadmaps.md
+└── turbo.json
+```
+
+---
+
+# Sprint 1 — Identity
+
+**Status:** 🟢 Completed
+
+Sprint 1 berfokus pada pembangunan fondasi identitas pengguna Aurora, meliputi authentication, authorization, user roles, admin access, serta integrasi database dan Payload CMS.
+
+Tujuan sprint ini adalah memastikan Aurora memiliki sistem identity yang aman dan dapat digunakan sebagai dasar untuk seluruh domain aplikasi berikutnya.
+
+### Completed
+
+- User collection
+- User authentication
+- User authorization
+- Admin role
+- User role
+- Login flow
+- Logout flow
+- Admin access
+- PostgreSQL local environment
+- Payload CMS integration
+- Database migration
+- Generated Payload types
+- Admin access validation
+- TypeScript validation
+- Production build validation
+- Pull Request
+- Merge ke branch utama
+
+### User Model
+
+Identity Aurora menggunakan `users` collection sebagai entity utama pengguna.
+
+Struktur user:
+
+```text
+User
+├── id
+├── name
+├── email
+├── role
+│   ├── user
+│   └── admin
+└── createdAt
+```
+
+---
+
+# Sprint 2 — Wedding Domain
+
+**Status:** 🟡 In Progress
+
+Sprint 2 berfokus pada pembangunan domain utama pernikahan Aurora.
+
+Tujuan sprint ini adalah membangun struktur data wedding yang menjadi fondasi untuk fitur-fitur berikutnya, termasuk invitation builder, guest management, RSVP, dan wedding gift.
+
+Wedding menjadi entity utama yang menghubungkan data pasangan, profil pernikahan, acara, dan informasi lokasi.
+
+### Objectives
+
+Sprint 2 memiliki beberapa tujuan utama:
+
+- Membuat `weddings` collection
+- Menghubungkan wedding dengan user sebagai owner
+- Membuat informasi pasangan
+- Membuat wedding profile
+- Membuat wedding events
+- Membuat informasi lokasi
+- Menentukan tanggal dan waktu acara
+- Menerapkan ownership dan access control
+- Menyediakan API untuk wedding domain
+- Melakukan database migration
+- Generate Payload types
+- Melakukan validation
+- Menyelesaikan Sprint 2 melalui Pull Request
+
+---
+
+## Task 2A — Wedding Collection
+
+**Status:** 🟢 Completed
+
+Task 2A berfokus pada pembuatan collection utama `weddings`.
+
+Wedding menjadi root entity untuk data pernikahan Aurora.
+
+Struktur dasar:
+
+```text
+Wedding
+├── id
+├── owner
+├── title
+├── slug
+└── createdAt
+

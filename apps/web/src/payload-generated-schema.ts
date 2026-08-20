@@ -22,6 +22,10 @@ import {
 } from "@payloadcms/db-postgres/drizzle/pg-core";
 import { sql, relations } from "@payloadcms/db-postgres/drizzle";
 export const enum_users_role = pgEnum("enum_users_role", ["user", "admin"]);
+export const enum_weddings_status = pgEnum("enum_weddings_status", [
+  "draft",
+  "published",
+]);
 
 export const users_sessions = pgTable(
   "users_sessions",
@@ -94,6 +98,41 @@ export const users = pgTable(
   ],
 );
 
+export const weddings = pgTable(
+  "weddings",
+  {
+    id: serial("id").primaryKey(),
+    name: varchar("name").notNull(),
+    slug: varchar("slug").notNull(),
+    owner: integer("owner_id")
+      .notNull()
+      .references(() => users.id, {
+        onDelete: "set null",
+      }),
+    status: enum_weddings_status("status").notNull().default("draft"),
+    updatedAt: timestamp("updated_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
+    createdAt: timestamp("created_at", {
+      mode: "string",
+      withTimezone: true,
+      precision: 3,
+    })
+      .defaultNow()
+      .notNull(),
+  },
+  (columns) => [
+    uniqueIndex("weddings_slug_idx").on(columns.slug),
+    index("weddings_owner_idx").on(columns.owner),
+    index("weddings_updated_at_idx").on(columns.updatedAt),
+    index("weddings_created_at_idx").on(columns.createdAt),
+  ],
+);
+
 export const payload_kv = pgTable(
   "payload_kv",
   {
@@ -139,12 +178,16 @@ export const payload_locked_documents_rels = pgTable(
     parent: integer("parent_id").notNull(),
     path: varchar("path").notNull(),
     usersID: integer("users_id"),
+    weddingsID: integer("weddings_id"),
   },
   (columns) => [
     index("payload_locked_documents_rels_order_idx").on(columns.order),
     index("payload_locked_documents_rels_parent_idx").on(columns.parent),
     index("payload_locked_documents_rels_path_idx").on(columns.path),
     index("payload_locked_documents_rels_users_id_idx").on(columns.usersID),
+    index("payload_locked_documents_rels_weddings_id_idx").on(
+      columns.weddingsID,
+    ),
     foreignKey({
       columns: [columns["parent"]],
       foreignColumns: [payload_locked_documents.id],
@@ -154,6 +197,11 @@ export const payload_locked_documents_rels = pgTable(
       columns: [columns["usersID"]],
       foreignColumns: [users.id],
       name: "payload_locked_documents_rels_users_fk",
+    }).onDelete("cascade"),
+    foreignKey({
+      columns: [columns["weddingsID"]],
+      foreignColumns: [weddings.id],
+      name: "payload_locked_documents_rels_weddings_fk",
     }).onDelete("cascade"),
   ],
 );
@@ -255,6 +303,13 @@ export const relations_users = relations(users, ({ many }) => ({
     relationName: "sessions",
   }),
 }));
+export const relations_weddings = relations(weddings, ({ one }) => ({
+  owner: one(users, {
+    fields: [weddings.owner],
+    references: [users.id],
+    relationName: "owner",
+  }),
+}));
 export const relations_payload_kv = relations(payload_kv, () => ({}));
 export const relations_payload_locked_documents_rels = relations(
   payload_locked_documents_rels,
@@ -268,6 +323,11 @@ export const relations_payload_locked_documents_rels = relations(
       fields: [payload_locked_documents_rels.usersID],
       references: [users.id],
       relationName: "users",
+    }),
+    weddingsID: one(weddings, {
+      fields: [payload_locked_documents_rels.weddingsID],
+      references: [weddings.id],
+      relationName: "weddings",
     }),
   }),
 );
@@ -309,8 +369,10 @@ export const relations_payload_migrations = relations(
 
 type DatabaseSchema = {
   enum_users_role: typeof enum_users_role;
+  enum_weddings_status: typeof enum_weddings_status;
   users_sessions: typeof users_sessions;
   users: typeof users;
+  weddings: typeof weddings;
   payload_kv: typeof payload_kv;
   payload_locked_documents: typeof payload_locked_documents;
   payload_locked_documents_rels: typeof payload_locked_documents_rels;
@@ -319,6 +381,7 @@ type DatabaseSchema = {
   payload_migrations: typeof payload_migrations;
   relations_users_sessions: typeof relations_users_sessions;
   relations_users: typeof relations_users;
+  relations_weddings: typeof relations_weddings;
   relations_payload_kv: typeof relations_payload_kv;
   relations_payload_locked_documents_rels: typeof relations_payload_locked_documents_rels;
   relations_payload_locked_documents: typeof relations_payload_locked_documents;
