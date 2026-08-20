@@ -8,6 +8,7 @@
 
 - [Project Overview](#project-overview)
 - [Vision](#vision)
+- [Product Principles](#product-principles)
 - [Engineering Principles](#engineering-principles)
 - [Technology Stack](#technology-stack)
 - [Repository Structure](#repository-structure)
@@ -42,6 +43,8 @@
 **Current Phase:** Building
 
 **Current Sprint:** Sprint 1 — Identity
+
+**Current Task:** Task 5A — Local PostgreSQL Environment
 
 **Status:** 🟡 In Progress
 
@@ -144,11 +147,14 @@ Aurora harus terus belajar dari penggunaan nyata.
 
 ## Database
 
-- PostgreSQL
+- PostgreSQL 17
 
 ## Caching / Infrastructure
 
 - Redis
+- Docker
+- Docker Compose
+- WSL 2 untuk development Windows
 
 ## Email Development
 
@@ -183,6 +189,8 @@ aurora/
 ├── .github/
 │
 ├── .gitignore
+├── .env.example
+├── docker-compose.yml
 ├── package.json
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
