@@ -174,6 +174,22 @@ export interface Wedding {
      */
     story?: string | null;
   };
+  events?:
+    | {
+        name: string;
+        type: 'akad' | 'resepsi' | 'lainnya';
+        date: string;
+        /**
+         * Gunakan format 24 jam, contoh: 08:00.
+         */
+        startTime: string;
+        /**
+         * Gunakan format 24 jam, contoh: 10:00.
+         */
+        endTime?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -300,6 +316,16 @@ export interface WeddingsSelect<T extends boolean = true> {
     | T
     | {
         story?: T;
+      };
+  events?:
+    | T
+    | {
+        name?: T;
+        type?: T;
+        date?: T;
+        startTime?: T;
+        endTime?: T;
+        id?: T;
       };
   updatedAt?: T;
   createdAt?: T;

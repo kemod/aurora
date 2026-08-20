@@ -391,20 +391,28 @@ User
 
 Sprint 2 berfokus pada pembangunan domain utama pernikahan Aurora.
 
+Tujuan sprint ini adalah membangun struktur data wedding yang menjadi fondasi untuk fitur invitation, guest management, RSVP, dan wedding gift.
+
 ### Progress
 
 - Task 2A — Wedding Collection 🟢 Completed
 - Task 2B — Couple & Wedding Profile 🟢 Completed
-- Task 2C — Wedding Events ⚪ Not Started
+- Task 2C — Wedding Events 🟢 Completed
 - Task 2D — Location & Date/Time ⚪ Not Started
 - Task 2E — Access Control 🟢 Completed
 - Task 2F — Database & Generated Types 🟢 Completed
 - Task 2G — API Validation ⚪ Not Started
 - Task 2H — Sprint Review ⚪ Not Started
 
-### Completed
+---
 
-#### Task 2A — Wedding Collection
+## Task 2A — Wedding Collection
+
+**Status:** 🟢 Completed
+
+Task 2A membangun collection utama `weddings` sebagai root entity domain pernikahan.
+
+### Completed
 
 - `weddings` collection
 - Nama pernikahan
@@ -414,7 +422,15 @@ Sprint 2 berfokus pada pembangunan domain utama pernikahan Aurora.
 - Ownership-based access control
 - Admin access
 
-#### Task 2B — Couple & Wedding Profile
+---
+
+## Task 2B — Couple & Wedding Profile
+
+**Status:** 🟢 Completed
+
+Task 2B membangun informasi pasangan dan profil dasar pernikahan.
+
+### Completed
 
 - Informasi mempelai pria
 - Nama lengkap mempelai pria
@@ -425,24 +441,17 @@ Sprint 2 berfokus pada pembangunan domain utama pernikahan Aurora.
 - Profil pernikahan
 - Cerita pernikahan
 
-### Current Domain Structure
+### Current Structure
 
 ```text
-User
- │
- └── Wedding
-      ├── name
-      ├── slug
-      ├── owner
-      ├── status
-      │
-      ├── groom
-      │   ├── name
-      │   └── nickname
-      │
-      ├── bride
-      │   ├── name
-      │   └── nickname
-      │
-      └── profile
-          └── story
+Wedding
+├── groom
+│   ├── name
+│   └── nickname
+│
+├── bride
+│   ├── name
+│   └── nickname
+│
+└── profile
+    └── story
