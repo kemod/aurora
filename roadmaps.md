@@ -42,11 +42,11 @@
 
 **Current Phase:** Building
 
-**Current Sprint:** Sprint 2 — Wedding Domain
+**Current Sprint:** Sprint 3 — Invitation Builder
 
-**Current Task:** Task 2B — Couple & Wedding Profile
+**Current Task:** Sprint 3 Review / Preparation for Sprint 4
 
-**Status:** 🟡 In Progress
+**Status:** 🟢 Sprint 3 Completed
 
 ---
 
@@ -591,7 +591,7 @@ Ownership Isolation     🟢
 
 # Sprint 3 — Invitation Builder
 
-**Status:** 🟡 In Progress
+**Status:** 🟢 Completed
 
 Sprint 3 berfokus pada pembangunan fondasi undangan digital Aurora yang menggunakan data wedding dari Sprint 2.
 
@@ -605,8 +605,29 @@ Tujuan sprint ini adalah membangun struktur invitation yang nantinya dapat menam
 - Task 3D — Invitation Cover 🟢 Completed
 - Task 3E — Invitation Preview 🟢 Completed
 - Task 3F — Public Invitation 🟢 Completed
-- Task 3G — Access Control & API Validation ⚪🟢 Completed
-- Task 3H — Sprint Review ⚪ Not Started
+- Task 3G — Access Control & API Validation 🟢 Completed
+- Task 3H — Sprint Review 🟢 Completed
+
+Sprint 3 telah menyelesaikan fondasi Invitation Builder Aurora, mulai dari struktur invitation hingga public invitation dan validasi keamanan.
+
+### Completed
+
+- Invitation collection
+- Invitation content
+- Invitation theme & template
+- Invitation cover
+- Invitation preview
+- Admin Preview Button
+- Tombol kembali ke halaman edit
+- Public invitation
+- Public invitation berdasarkan slug
+- Draft protection
+- Ownership isolation
+- Access control
+- API validation menggunakan Postman
+- TypeScript validation
+- Generated Payload types
+- Production build validation
 
 ---
 
