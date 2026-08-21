@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     users: User;
     weddings: Wedding;
+    invitations: Invitation;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,6 +79,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     weddings: WeddingsSelect<false> | WeddingsSelect<true>;
+    invitations: InvitationsSelect<false> | InvitationsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -203,6 +205,28 @@ export interface Wedding {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "invitations".
+ */
+export interface Invitation {
+  id: number;
+  /**
+   * Pernikahan yang digunakan sebagai sumber data undangan.
+   */
+  wedding: number | Wedding;
+  /**
+   * Judul yang digunakan untuk mengidentifikasi undangan.
+   */
+  title: string;
+  /**
+   * Identitas unik yang digunakan pada alamat publik undangan.
+   */
+  slug: string;
+  status: 'draft' | 'published';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -232,6 +256,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'weddings';
         value: number | Wedding;
+      } | null)
+    | ({
+        relationTo: 'invitations';
+        value: number | Invitation;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -342,6 +370,18 @@ export interface WeddingsSelect<T extends boolean = true> {
             };
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "invitations_select".
+ */
+export interface InvitationsSelect<T extends boolean = true> {
+  wedding?: T;
+  title?: T;
+  slug?: T;
+  status?: T;
   updatedAt?: T;
   createdAt?: T;
 }

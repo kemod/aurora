@@ -586,3 +586,51 @@ Authorization           🟢
 API Validation          🟢
 Ownership Isolation     🟢
 ```
+
+---
+
+# Sprint 3 — Invitation Builder
+
+**Status:** 🟡 In Progress
+
+Sprint 3 berfokus pada pembangunan fondasi undangan digital Aurora yang menggunakan data wedding dari Sprint 2.
+
+Tujuan sprint ini adalah membangun struktur invitation yang nantinya dapat menampilkan informasi pasangan, acara, tema, cover, dan menjadi dasar untuk public invitation.
+
+## Progress
+
+- Task 3A — Invitation Collection 🟢 Completed
+- Task 3B — Invitation Content ⚪ Not Started
+- Task 3C — Invitation Theme & Template ⚪ Not Started
+- Task 3D — Invitation Cover ⚪ Not Started
+- Task 3E — Invitation Preview ⚪ Not Started
+- Task 3F — Public Invitation ⚪ Not Started
+- Task 3G — Access Control & API Validation ⚪ Not Started
+- Task 3H — Sprint Review ⚪ Not Started
+
+---
+
+# Task 3A — Invitation Collection
+
+**Status:** 🟢 Completed
+
+Task 3A membangun collection `invitations` sebagai fondasi domain undangan digital Aurora.
+
+Invitation memiliki hubungan satu-ke-satu dengan Wedding.
+
+### Completed
+
+- Invitation collection
+- Relationship dengan Wedding
+- Judul undangan
+- Slug unik
+- Status `draft` / `published`
+- Ownership-based access control
+- Admin access
+- TypeScript validation
+- Generated Payload types
+- Production build validation
+- Admin validation
+
+---
+
