@@ -653,3 +653,27 @@ Task 3B membangun struktur konten tambahan yang digunakan oleh invitation tanpa 
 - Admin validation
 
 ---
+
+# Task 3C — Invitation Theme & Template
+
+**Status:** 🟢 Completed
+
+Task 3C membangun sistem dasar tema dan template invitation tanpa membuat theme engine yang kompleks.
+
+### Completed
+
+- Struktur tema invitation
+- Template invitation
+- Template Classic
+- Template Elegant
+- Template Minimal
+- Warna utama
+- Warna sekunder
+- Font
+- TypeScript validation
+- Generated Payload types
+- Production build validation
+- Admin validation
+
+---
+

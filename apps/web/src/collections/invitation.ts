@@ -155,5 +155,85 @@ export const Invitation: CollectionConfig = {
         },
       ],
     },
+
+    {
+      name: 'theme',
+      type: 'group',
+      label: 'Tema Undangan',
+      fields: [
+        {
+          name: 'template',
+          type: 'select',
+          label: 'Template',
+          required: true,
+          defaultValue: 'classic',
+          options: [
+            {
+              label: 'Classic',
+              value: 'classic',
+            },
+            {
+              label: 'Elegant',
+              value: 'elegant',
+            },
+            {
+              label: 'Minimal',
+              value: 'minimal',
+            },
+          ],
+          admin: {
+            description:
+              'Template dasar yang digunakan untuk menampilkan undangan.',
+          },
+        },
+
+        {
+          name: 'style',
+          type: 'group',
+          label: 'Gaya Tampilan',
+          fields: [
+            {
+              name: 'primaryColor',
+              type: 'text',
+              label: 'Warna Utama',
+              required: true,
+              defaultValue: '#1F2937',
+              admin: {
+                description:
+                  'Gunakan format warna HEX, contoh: #1F2937.',
+                placeholder: '#1F2937',
+              },
+            },
+
+            {
+              name: 'secondaryColor',
+              type: 'text',
+              label: 'Warna Sekunder',
+              required: true,
+              defaultValue: '#F3F4F6',
+              admin: {
+                description:
+                  'Gunakan format warna HEX, contoh: #F3F4F6.',
+                placeholder: '#F3F4F6',
+              },
+            },
+
+            {
+              name: 'font',
+              type: 'text',
+              label: 'Font',
+              required: true,
+              defaultValue: 'Inter',
+              maxLength: 100,
+              admin: {
+                description:
+                  'Nama font yang digunakan pada tampilan undangan.',
+                placeholder: 'Inter',
+              },
+            },
+          ],
+        },
+      ],
+    },
   ],
 }

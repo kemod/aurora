@@ -236,6 +236,26 @@ export interface Invitation {
      */
     closing?: string | null;
   };
+  theme: {
+    /**
+     * Template dasar yang digunakan untuk menampilkan undangan.
+     */
+    template: 'classic' | 'elegant' | 'minimal';
+    style: {
+      /**
+       * Gunakan format warna HEX, contoh: #1F2937.
+       */
+      primaryColor: string;
+      /**
+       * Gunakan format warna HEX, contoh: #F3F4F6.
+       */
+      secondaryColor: string;
+      /**
+       * Nama font yang digunakan pada tampilan undangan.
+       */
+      font: string;
+    };
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -402,6 +422,18 @@ export interface InvitationsSelect<T extends boolean = true> {
         headline?: T;
         greeting?: T;
         closing?: T;
+      };
+  theme?:
+    | T
+    | {
+        template?: T;
+        style?:
+          | T
+          | {
+              primaryColor?: T;
+              secondaryColor?: T;
+              font?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
