@@ -721,4 +721,29 @@ Task 3E membangun halaman preview invitation yang dapat diakses dari Admin Panel
 - Production build validation
 - Admin validation
 
+---
 
+# Task 3F — Public Invitation
+
+**Status:** 🟢 Completed
+
+Task 3F membangun halaman invitation publik yang dapat diakses oleh tamu melalui URL berdasarkan slug invitation.
+
+### Completed
+
+- Public invitation route `/i/[slug]`
+- Pengambilan invitation berdasarkan slug
+- Hanya invitation dengan status `published` yang dapat diakses
+- Tidak membutuhkan authentication untuk tamu
+- Cover invitation
+- Invitation content
+- Data pasangan
+- Profil pernikahan
+- Acara pernikahan
+- Lokasi acara
+- Theme dan style
+- Link Google Maps
+- Responsive mobile-first layout
+- Handling invitation yang tidak ditemukan
+- TypeScript validation
+- Production build validation
