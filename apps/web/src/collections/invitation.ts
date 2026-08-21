@@ -4,9 +4,15 @@ export const Invitation: CollectionConfig = {
   slug: "invitations",
 
   admin: {
-    useAsTitle: "title",
-    defaultColumns: ["title", "wedding", "status", "createdAt"],
+  useAsTitle: 'title',
+  defaultColumns: ['title', 'wedding', 'status', 'createdAt'],
+
+  preview: ({ slug }) => {
+    if (!slug) return null
+
+    return `/preview/${slug}`
   },
+},
 
   access: {
     read: ({ req }) => {
