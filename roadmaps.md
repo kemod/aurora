@@ -500,3 +500,46 @@ Task 2D melengkapi informasi lokasi setiap acara pernikahan.
 - Validasi TypeScript
 - Generated Payload types
 - Production build
+
+---
+
+# Task 2G — API Validation
+
+**Status:** 🟢 Completed
+
+Task 2G memvalidasi API wedding dan memastikan ownership isolation berjalan dengan benar.
+
+### Completed
+
+- Create wedding melalui API
+- Read wedding milik sendiri
+- Update wedding milik sendiri
+- Delete access validation
+- Ownership isolation
+- User tidak dapat membaca wedding milik user lain
+- User tidak dapat mengubah wedding milik user lain
+- User tidak dapat menghapus wedding milik user lain
+- Owner otomatis ditentukan berdasarkan authenticated user
+- Validasi melalui Postman
+
+### API Validation
+
+```text
+POST /api/weddings
+🟢 Create Wedding
+
+GET /api/weddings/:id
+🟢 Read Own Wedding
+
+PATCH /api/weddings/:id
+🟢 Update Own Wedding
+
+GET /api/weddings/:id
+🔴 Other User Blocked
+
+PATCH /api/weddings/:id
+🔴 Other User Blocked
+
+DELETE /api/weddings/:id
+🔴 Other User Blocked
+```
