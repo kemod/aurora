@@ -387,7 +387,7 @@ User
 
 # Sprint 2 — Wedding Domain
 
-**Status:** 🟡 In Progress
+**Status:** 🟢 Completed
 
 Sprint 2 berfokus pada pembangunan domain utama pernikahan Aurora.
 
@@ -542,4 +542,47 @@ PATCH /api/weddings/:id
 
 DELETE /api/weddings/:id
 🔴 Other User Blocked
+```
+
+---
+
+# Task 2H — Sprint Review
+
+**Status:** 🟢 Completed
+
+Sprint 2 telah menyelesaikan fondasi domain wedding Aurora.
+
+### Completed
+
+- Wedding collection
+- Couple & wedding profile
+- Wedding events
+- Event location
+- Date & time
+- Ownership-based access control
+- PostgreSQL integration
+- Generated Payload types
+- API validation
+- Ownership isolation
+- TypeScript validation
+- Production build validation
+- Postman API testing
+
+### Outcome
+
+Aurora sekarang memiliki domain wedding yang dapat dimiliki oleh user, dikelola secara aman berdasarkan ownership, dan diakses melalui API.
+
+Domain ini menjadi fondasi untuk Sprint 3 — Invitation Builder.
+
+### Sprint 2 Validation
+
+```text
+TypeScript              🟢
+Payload Types           🟢
+Production Build        🟢
+Database                🟢
+Authentication          🟢
+Authorization           🟢
+API Validation          🟢
+Ownership Isolation     🟢
 ```
