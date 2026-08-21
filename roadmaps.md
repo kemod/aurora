@@ -600,12 +600,12 @@ Tujuan sprint ini adalah membangun struktur invitation yang nantinya dapat menam
 ## Progress
 
 - Task 3A — Invitation Collection 🟢 Completed
-- Task 3B — Invitation Content ⚪ Not Started
-- Task 3C — Invitation Theme & Template ⚪ Not Started
-- Task 3D — Invitation Cover ⚪ Not Started
-- Task 3E — Invitation Preview ⚪ Not Started
-- Task 3F — Public Invitation ⚪ Not Started
-- Task 3G — Access Control & API Validation ⚪ Not Started
+- Task 3B — Invitation Content 🟢 Completed
+- Task 3C — Invitation Theme & Template 🟢 Completed
+- Task 3D — Invitation Cover 🟢 Completed
+- Task 3E — Invitation Preview 🟢 Completed
+- Task 3F — Public Invitation 🟢 Completed
+- Task 3G — Access Control & API Validation ⚪🟢 Completed
 - Task 3H — Sprint Review ⚪ Not Started
 
 ---
@@ -747,3 +747,25 @@ Task 3F membangun halaman invitation publik yang dapat diakses oleh tamu melalui
 - Handling invitation yang tidak ditemukan
 - TypeScript validation
 - Production build validation
+
+---
+
+# Task 3G — Access Control & API Validation
+
+**Status:** 🟢 Completed
+
+Task 3G memvalidasi keamanan invitation, ownership isolation, dan akses public invitation.
+
+### Completed
+
+- Owner dapat membaca invitation miliknya
+- Owner dapat memperbarui invitation miliknya
+- Owner dapat menghapus invitation miliknya
+- User lain tidak dapat membaca invitation milik user lain
+- User lain tidak dapat memperbarui invitation milik user lain
+- User lain tidak dapat menghapus invitation milik user lain
+- User tidak dapat memanipulasi ownership melalui field `wedding`
+- Invitation `draft` tidak dapat diakses melalui public URL
+- Invitation `published` dapat diakses melalui public URL
+- Admin memiliki akses sesuai authorization policy
+- API validation menggunakan Postman
