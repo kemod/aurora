@@ -1,7 +1,8 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { buildConfig } from 'payload'
-import { Wedding } from './src/collections/wedding'
 
+import { Wedding } from './src/collections/wedding'
+import { Invitation } from './src/collections/invitation'
 import { User } from './src/collections/user'
 
 export default buildConfig({
@@ -9,7 +10,7 @@ export default buildConfig({
     user: User.slug,
   },
 
-  collections: [User, Wedding],
+  collections: [User, Wedding, Invitation],
 
   db: postgresAdapter({
     pool: {

@@ -42,11 +42,11 @@
 
 **Current Phase:** Building
 
-**Current Sprint:** Sprint 2 — Wedding Domain
+**Current Sprint:** Sprint 3 — Invitation Builder
 
-**Current Task:** Task 2B — Couple & Wedding Profile
+**Current Task:** Sprint 3 Review / Preparation for Sprint 4
 
-**Status:** 🟡 In Progress
+**Status:** 🟢 Sprint 3 Completed
 
 ---
 
@@ -586,3 +586,207 @@ Authorization           🟢
 API Validation          🟢
 Ownership Isolation     🟢
 ```
+
+---
+
+# Sprint 3 — Invitation Builder
+
+**Status:** 🟢 Completed
+
+Sprint 3 berfokus pada pembangunan fondasi undangan digital Aurora yang menggunakan data wedding dari Sprint 2.
+
+Tujuan sprint ini adalah membangun struktur invitation yang nantinya dapat menampilkan informasi pasangan, acara, tema, cover, dan menjadi dasar untuk public invitation.
+
+## Progress
+
+- Task 3A — Invitation Collection 🟢 Completed
+- Task 3B — Invitation Content 🟢 Completed
+- Task 3C — Invitation Theme & Template 🟢 Completed
+- Task 3D — Invitation Cover 🟢 Completed
+- Task 3E — Invitation Preview 🟢 Completed
+- Task 3F — Public Invitation 🟢 Completed
+- Task 3G — Access Control & API Validation 🟢 Completed
+- Task 3H — Sprint Review 🟢 Completed
+
+Sprint 3 telah menyelesaikan fondasi Invitation Builder Aurora, mulai dari struktur invitation hingga public invitation dan validasi keamanan.
+
+### Completed
+
+- Invitation collection
+- Invitation content
+- Invitation theme & template
+- Invitation cover
+- Invitation preview
+- Admin Preview Button
+- Tombol kembali ke halaman edit
+- Public invitation
+- Public invitation berdasarkan slug
+- Draft protection
+- Ownership isolation
+- Access control
+- API validation menggunakan Postman
+- TypeScript validation
+- Generated Payload types
+- Production build validation
+
+---
+
+# Task 3A — Invitation Collection
+
+**Status:** 🟢 Completed
+
+Task 3A membangun collection `invitations` sebagai fondasi domain undangan digital Aurora.
+
+Invitation memiliki hubungan satu-ke-satu dengan Wedding.
+
+### Completed
+
+- Invitation collection
+- Relationship dengan Wedding
+- Judul undangan
+- Slug unik
+- Status `draft` / `published`
+- Ownership-based access control
+- Admin access
+- TypeScript validation
+- Generated Payload types
+- Production build validation
+- Admin validation
+
+---
+
+# Task 3B — Invitation Content
+
+**Status:** 🟢 Completed
+
+Task 3B membangun struktur konten tambahan yang digunakan oleh invitation tanpa menduplikasi data utama dari Wedding.
+
+### Completed
+
+- Konten undangan
+- Judul utama
+- Kata pembuka
+- Kata penutup
+- Group `content`
+- TypeScript validation
+- Generated Payload types
+- Production build validation
+- Admin validation
+
+---
+
+# Task 3C — Invitation Theme & Template
+
+**Status:** 🟢 Completed
+
+Task 3C membangun sistem dasar tema dan template invitation tanpa membuat theme engine yang kompleks.
+
+### Completed
+
+- Struktur tema invitation
+- Template invitation
+- Template Classic
+- Template Elegant
+- Template Minimal
+- Warna utama
+- Warna sekunder
+- Font
+- TypeScript validation
+- Generated Payload types
+- Production build validation
+- Admin validation
+
+---
+
+# Task 3D — Invitation Cover
+
+**Status:** 🟢 Completed
+
+Task 3D membangun struktur dasar sampul invitation sebagai bagian pertama yang akan dilihat oleh tamu.
+
+### Completed
+
+- Struktur `cover`
+- Judul sampul
+- Subjudul sampul
+- TypeScript validation
+- Generated Payload types
+- Production build validation
+- Admin validation
+
+---
+
+# Task 3E — Invitation Preview
+
+**Status:** 🟢 Completed
+
+Task 3E membangun halaman preview invitation yang dapat diakses dari Admin Panel dan memungkinkan pengguna kembali ke halaman edit invitation.
+
+### Completed
+
+- Preview route `/preview/[slug]`
+- Preview button pada Admin Panel
+- Pengambilan invitation berdasarkan slug
+- Pengambilan data Wedding melalui relationship
+- Preview cover
+- Preview content
+- Preview data pasangan
+- Preview cerita pernikahan
+- Preview acara pernikahan
+- Preview lokasi acara
+- Preview theme/style
+- Tombol "Kembali ke Edit"
+- Handling invitation yang tidak ditemukan
+- Draft invitation tidak ditampilkan pada preview
+- TypeScript validation
+- Production build validation
+- Admin validation
+
+---
+
+# Task 3F — Public Invitation
+
+**Status:** 🟢 Completed
+
+Task 3F membangun halaman invitation publik yang dapat diakses oleh tamu melalui URL berdasarkan slug invitation.
+
+### Completed
+
+- Public invitation route `/i/[slug]`
+- Pengambilan invitation berdasarkan slug
+- Hanya invitation dengan status `published` yang dapat diakses
+- Tidak membutuhkan authentication untuk tamu
+- Cover invitation
+- Invitation content
+- Data pasangan
+- Profil pernikahan
+- Acara pernikahan
+- Lokasi acara
+- Theme dan style
+- Link Google Maps
+- Responsive mobile-first layout
+- Handling invitation yang tidak ditemukan
+- TypeScript validation
+- Production build validation
+
+---
+
+# Task 3G — Access Control & API Validation
+
+**Status:** 🟢 Completed
+
+Task 3G memvalidasi keamanan invitation, ownership isolation, dan akses public invitation.
+
+### Completed
+
+- Owner dapat membaca invitation miliknya
+- Owner dapat memperbarui invitation miliknya
+- Owner dapat menghapus invitation miliknya
+- User lain tidak dapat membaca invitation milik user lain
+- User lain tidak dapat memperbarui invitation milik user lain
+- User lain tidak dapat menghapus invitation milik user lain
+- User tidak dapat memanipulasi ownership melalui field `wedding`
+- Invitation `draft` tidak dapat diakses melalui public URL
+- Invitation `published` dapat diakses melalui public URL
+- Admin memiliki akses sesuai authorization policy
+- API validation menggunakan Postman

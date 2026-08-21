@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     users: User;
     weddings: Wedding;
+    invitations: Invitation;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,6 +79,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     weddings: WeddingsSelect<false> | WeddingsSelect<true>;
+    invitations: InvitationsSelect<false> | InvitationsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -203,6 +205,72 @@ export interface Wedding {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "invitations".
+ */
+export interface Invitation {
+  id: number;
+  /**
+   * Pernikahan yang digunakan sebagai sumber data undangan.
+   */
+  wedding: number | Wedding;
+  /**
+   * Judul yang digunakan untuk mengidentifikasi undangan.
+   */
+  title: string;
+  /**
+   * Identitas unik yang digunakan pada alamat publik undangan.
+   */
+  slug: string;
+  status: 'draft' | 'published';
+  content: {
+    /**
+     * Judul utama yang ditampilkan pada bagian konten undangan.
+     */
+    headline: string;
+    /**
+     * Kata pembuka atau pesan yang ingin disampaikan kepada tamu.
+     */
+    greeting: string;
+    /**
+     * Pesan penutup untuk tamu undangan.
+     */
+    closing?: string | null;
+  };
+  theme: {
+    /**
+     * Template dasar yang digunakan untuk menampilkan undangan.
+     */
+    template: 'classic' | 'elegant' | 'minimal';
+    style: {
+      /**
+       * Gunakan format warna HEX, contoh: #1F2937.
+       */
+      primaryColor: string;
+      /**
+       * Gunakan format warna HEX, contoh: #F3F4F6.
+       */
+      secondaryColor: string;
+      /**
+       * Nama font yang digunakan pada tampilan undangan.
+       */
+      font: string;
+    };
+  };
+  cover: {
+    /**
+     * Judul utama yang ditampilkan pada sampul undangan.
+     */
+    title: string;
+    /**
+     * Teks pendukung yang ditampilkan pada sampul undangan.
+     */
+    subtitle?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -232,6 +300,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'weddings';
         value: number | Wedding;
+      } | null)
+    | ({
+        relationTo: 'invitations';
+        value: number | Invitation;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -341,6 +413,43 @@ export interface WeddingsSelect<T extends boolean = true> {
               mapsUrl?: T;
             };
         id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "invitations_select".
+ */
+export interface InvitationsSelect<T extends boolean = true> {
+  wedding?: T;
+  title?: T;
+  slug?: T;
+  status?: T;
+  content?:
+    | T
+    | {
+        headline?: T;
+        greeting?: T;
+        closing?: T;
+      };
+  theme?:
+    | T
+    | {
+        template?: T;
+        style?:
+          | T
+          | {
+              primaryColor?: T;
+              secondaryColor?: T;
+              font?: T;
+            };
+      };
+  cover?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
       };
   updatedAt?: T;
   createdAt?: T;
