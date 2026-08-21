@@ -222,6 +222,20 @@ export interface Invitation {
    */
   slug: string;
   status: 'draft' | 'published';
+  content: {
+    /**
+     * Judul utama yang ditampilkan pada bagian konten undangan.
+     */
+    headline: string;
+    /**
+     * Kata pembuka atau pesan yang ingin disampaikan kepada tamu.
+     */
+    greeting: string;
+    /**
+     * Pesan penutup untuk tamu undangan.
+     */
+    closing?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -382,6 +396,13 @@ export interface InvitationsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   status?: T;
+  content?:
+    | T
+    | {
+        headline?: T;
+        greeting?: T;
+        closing?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

@@ -634,3 +634,22 @@ Invitation memiliki hubungan satu-ke-satu dengan Wedding.
 
 ---
 
+# Task 3B — Invitation Content
+
+**Status:** 🟢 Completed
+
+Task 3B membangun struktur konten tambahan yang digunakan oleh invitation tanpa menduplikasi data utama dari Wedding.
+
+### Completed
+
+- Konten undangan
+- Judul utama
+- Kata pembuka
+- Kata penutup
+- Group `content`
+- TypeScript validation
+- Generated Payload types
+- Production build validation
+- Admin validation
+
+---

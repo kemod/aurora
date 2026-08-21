@@ -71,7 +71,8 @@ export const Invitation: CollectionConfig = {
       minLength: 2,
       maxLength: 150,
       admin: {
-        description: 'Judul yang digunakan untuk mengidentifikasi undangan.',
+        description:
+          'Judul yang digunakan untuk mengidentifikasi undangan.',
       },
     },
 
@@ -109,6 +110,50 @@ export const Invitation: CollectionConfig = {
       admin: {
         position: 'sidebar',
       },
+    },
+
+    {
+      name: 'content',
+      type: 'group',
+      label: 'Konten Undangan',
+      fields: [
+        {
+          name: 'headline',
+          type: 'text',
+          label: 'Judul Utama',
+          required: true,
+          minLength: 2,
+          maxLength: 150,
+          admin: {
+            description:
+              'Judul utama yang ditampilkan pada bagian konten undangan.',
+          },
+        },
+
+        {
+          name: 'greeting',
+          type: 'textarea',
+          label: 'Kata Pembuka',
+          required: true,
+          minLength: 2,
+          maxLength: 1000,
+          admin: {
+            description:
+              'Kata pembuka atau pesan yang ingin disampaikan kepada tamu.',
+          },
+        },
+
+        {
+          name: 'closing',
+          type: 'textarea',
+          label: 'Kata Penutup',
+          maxLength: 1000,
+          admin: {
+            description:
+              'Pesan penutup untuk tamu undangan.',
+          },
+        },
+      ],
     },
   ],
 }
