@@ -693,4 +693,28 @@ Task 3D membangun struktur dasar sampul invitation sebagai bagian pertama yang a
 - Production build validation
 - Admin validation
 
+---
+
+# Task 3E — Invitation Preview
+
+**Status:** 🟢 Completed
+
+Task 3E membangun halaman preview invitation berdasarkan data invitation dan wedding yang sebenarnya.
+
+### Completed
+
+- Preview route `/preview/[slug]`
+- Pengambilan invitation berdasarkan slug
+- Pengambilan data Wedding melalui relationship
+- Preview cover
+- Preview content
+- Preview data pasangan
+- Preview cerita pernikahan
+- Preview acara pernikahan
+- Preview lokasi acara
+- Preview theme/style
+- Handling invitation yang tidak ditemukan
+- Draft invitation tidak ditampilkan pada route publik preview
+- TypeScript validation
+- Production build validation
 
