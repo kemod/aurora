@@ -256,6 +256,16 @@ export interface Invitation {
       font: string;
     };
   };
+  cover: {
+    /**
+     * Judul utama yang ditampilkan pada sampul undangan.
+     */
+    title: string;
+    /**
+     * Teks pendukung yang ditampilkan pada sampul undangan.
+     */
+    subtitle?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -434,6 +444,12 @@ export interface InvitationsSelect<T extends boolean = true> {
               secondaryColor?: T;
               font?: T;
             };
+      };
+  cover?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
       };
   updatedAt?: T;
   createdAt?: T;

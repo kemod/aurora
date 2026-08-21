@@ -677,3 +677,20 @@ Task 3C membangun sistem dasar tema dan template invitation tanpa membuat theme 
 
 ---
 
+# Task 3D — Invitation Cover
+
+**Status:** 🟢 Completed
+
+Task 3D membangun struktur dasar sampul invitation sebagai bagian pertama yang akan dilihat oleh tamu.
+
+### Completed
+
+- Struktur `cover`
+- Judul sampul
+- Subjudul sampul
+- TypeScript validation
+- Generated Payload types
+- Production build validation
+- Admin validation
+
+
