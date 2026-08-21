@@ -68,6 +68,7 @@ export interface Config {
   blocks: {};
   collections: {
     users: User;
+    weddings: Wedding;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -76,6 +77,7 @@ export interface Config {
   collectionsJoins: {};
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
+    weddings: WeddingsSelect<false> | WeddingsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -144,6 +146,63 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "weddings".
+ */
+export interface Wedding {
+  id: number;
+  name: string;
+  /**
+   * Digunakan sebagai identitas unik pada alamat pernikahan.
+   */
+  slug: string;
+  /**
+   * Pengguna yang memiliki dan mengelola data pernikahan ini.
+   */
+  owner: number | User;
+  status: 'draft' | 'published';
+  groom: {
+    name: string;
+    nickname?: string | null;
+  };
+  bride: {
+    name: string;
+    nickname?: string | null;
+  };
+  profile?: {
+    /**
+     * Ceritakan kisah pasangan atau perjalanan menuju pernikahan.
+     */
+    story?: string | null;
+  };
+  events?:
+    | {
+        name: string;
+        type: 'akad' | 'resepsi' | 'lainnya';
+        date: string;
+        /**
+         * Gunakan format 24 jam, contoh: 08:00.
+         */
+        startTime: string;
+        /**
+         * Gunakan format 24 jam, contoh: 10:00.
+         */
+        endTime?: string | null;
+        location: {
+          venue: string;
+          address: string;
+          /**
+           * Masukkan tautan Google Maps menuju lokasi acara.
+           */
+          mapsUrl?: string | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -165,10 +224,15 @@ export interface PayloadKv {
  */
 export interface PayloadLockedDocument {
   id: number;
-  document?: {
-    relationTo: 'users';
-    value: number | User;
-  } | null;
+  document?:
+    | ({
+        relationTo: 'users';
+        value: number | User;
+      } | null)
+    | ({
+        relationTo: 'weddings';
+        value: number | Wedding;
+      } | null);
   globalSlug?: string | null;
   user: {
     relationTo: 'users';
@@ -234,6 +298,52 @@ export interface UsersSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "weddings_select".
+ */
+export interface WeddingsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  owner?: T;
+  status?: T;
+  groom?:
+    | T
+    | {
+        name?: T;
+        nickname?: T;
+      };
+  bride?:
+    | T
+    | {
+        name?: T;
+        nickname?: T;
+      };
+  profile?:
+    | T
+    | {
+        story?: T;
+      };
+  events?:
+    | T
+    | {
+        name?: T;
+        type?: T;
+        date?: T;
+        startTime?: T;
+        endTime?: T;
+        location?:
+          | T
+          | {
+              venue?: T;
+              address?: T;
+              mapsUrl?: T;
+            };
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
